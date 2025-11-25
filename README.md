@@ -1,59 +1,88 @@
-# VOSW - Voice Operated Smart Workspace (Frontend Prototype)
+# **VOSM — Voice-Operated Smart Workspace**
 
-This is the frontend prototype for VOSW, built with React, Vite, and Tailwind CSS.
-Currently, it runs with a **Mock API** (`client/src/lib/mock-api.ts`) to simulate backend interactions.
+VOSM (Voice-Operated Smart Workspace) is a next-generation productivity web application that lets users **control their computer with voice and text commands**.  
+Built using **React (frontend)** and **Flask (backend)**, it provides a seamless interface for hands-free workspace control, file management, document creation, and AI-powered actions — all from within the browser.
 
-## 🚀 How to Run Locally
-
-### Prerequisites
-- [Node.js](https://nodejs.org/) (v18 or higher)
-- [Python](https://www.python.org/) (v3.10 or higher) - *Only required when you are ready to build the real backend*
-
-### 1. Frontend Setup (Mock Mode)
-To run the UI as it currently exists (with mock data):
-
-1.  **Download the code**:
-    - Click the "Shell" in Replit.
-    - Run `git clone <your-repl-git-url>` OR download the project as a ZIP.
-
-2.  **Install dependencies**:
-    ```bash
-    npm install
-    ```
-
-3.  **Run the development server**:
-    ```bash
-    npm run dev:client
-    ```
-    Open `http://localhost:5000` in your browser.
+VOSM is designed for developers, researchers, writers, and anyone who wants to boost workflow efficiency through intelligent voice interaction.
 
 ---
 
-## 🔌 Connecting to a Real Backend
-When you are ready to implement the actual Python/Flask backend on your local machine:
+## 🖼️ Project Screenshots
 
-1.  **Navigate to the reference implementation**:
-    I have provided a starter Flask server in `reference/flask_server.py`.
+### **🔷 Dashboard Preview**
+![Dashboard](./assets/Dashbroads.png)
 
-2.  **Set up Python Environment**:
-    ```bash
-    cd reference
-    python -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
-    pip install -r requirements.txt
-    ```
+### **🎤 Voice Command Interface**
+![Voice Interface](./assets/Voice.png)
 
-3.  **Run the Python Server**:
-    ```bash
-    python flask_server.py
-    ```
+### **📂 File Manager**
+![File Manager](./assets/File.png)
 
-4.  **Connect Frontend to Backend**:
-    - Edit `client/src/lib/mock-api.ts`
-    - Replace the mock functions with actual `fetch()` calls to `http://localhost:5000/api/...`
+*(Place your images in an `/assets` folder or update the paths accordingly.)*
 
-## 📁 Project Structure
+---
 
-- `client/` - React Frontend Application
-- `reference/` - Reference Python Backend Code (Start here for local dev)
-- `shared/` - Shared Types/Schemas
+## 🚀 Key Features
+
+### 🎤 Voice & Text Command Control
+- Execute system-level tasks using natural voice commands.
+- Supported actions:
+  - “Create file notes.txt”
+  - “Search for images”
+  - “Open VS Code”
+  - “Write a report on AI ethics”
+  - “Generate a React component”
+
+### 📁 Smart File Management
+- Create, edit, search, and manage files/folders.
+- Sandboxed workspace for safety.
+- Supports structured file creation (Python, text files, docs).
+
+### 🤖 AI-Powered Content Generation
+- Generate reports, summaries, or code using a local AI model.
+- Converts natural-language commands into real actions.
+
+### 🖥 System Control via Allowlist
+- Securely execute OS-level actions like opening approved apps.
+- Uses allowlisting for protection.
+
+### 🔄 Real-time Interaction
+- Flask-SocketIO for:
+  - Live voice streaming
+  - Command execution feedback
+  - Real-time results
+
+### 🔐 Security Focus
+- Safe command executor  
+- Path validation  
+- No unsafe shell commands  
+- Sandboxed folder operations  
+
+---
+
+## 🏗 Tech Stack
+
+### **Frontend**
+- React  
+- Socket.IO client  
+- Web Audio API (voice recording)  
+- REST API integration  
+
+### **Backend**
+- Flask  
+- Flask-SocketIO  
+- Python file management  
+- Optional: Whisper (STT)  
+- Optional: LlamaCpp / GPT4All (local AI)
+
+---
+
+## 📂 Project Structure
+
+```bash
+VOSM/
+│── frontend/        # React UI
+│── backend/         # Flask API + SocketIO
+│── workspace/       # Sandboxed user files
+│── assets/          # Images for README
+│── README.md
